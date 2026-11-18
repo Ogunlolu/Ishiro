@@ -25,8 +25,8 @@ in the first session an agent started building unasked and had to stop.
 - `docs/product-brief.md` — problem, market research, scope, architecture,
   security, plan, open decisions.
 - `docs/brand.md` — approved brand direction and design rules.
-- `docs/architecture.md` — proposed architecture and the way of working with
-  agents (awaiting the owner's approval).
+- `docs/architecture.md` — approved architecture and the way of working with
+  agents.
 - Design canvas (private to the owner; ask them to share or export if you
   cannot open it): https://claude.ai/artifact/BS92wjiJh4MF1Gyx1mzChF
 
@@ -64,18 +64,18 @@ in the first session an agent started building unasked and had to stop.
 - **Business model:** free. It is a for-fun project; keep running costs near
   zero and add no paid service without asking.
 - **Trip cover photos:** from the camera roll and a stock library (both).
-- **Accounts:** the owner has an Apple Developer account.
+- **Accounts:** the owner has an Apple Developer account. No Google Play
+  account yet; the owner will set it up later, before Android ships.
+- **Architecture and way of working:** `docs/architecture.md`, approved by
+  the owner on 18 Nov 2026.
 
 ## Still open (ask the owner; do not assume)
 
-- Trip cover photos: the owner said "both, but…" and the condition was cut
-  off. Ask what it was.
 - Logo symbol and app icon; trademark and store-name checks for "Ishiro".
   The owner will come back to this later.
-- Whether the owner has a Google Play account (Apple Developer: yes).
-- A web address for invite links (see `docs/architecture.md`, section 8).
+- Which web address to buy for invite links (the owner agreed to buy one;
+  none chosen yet).
 - Whether to review or rewrite the `core-ledger` money logic.
-- `docs/architecture.md` is proposed, not yet approved by the owner.
 
 ## Engineering rules for when building starts
 

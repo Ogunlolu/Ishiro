@@ -1,7 +1,7 @@
 # Ishiro — architecture and how we work with agents
 
-Status: proposed, 18 Nov 2026. A plan for the owner to review. Nothing here is
-built, and nothing gets built until the owner asks.
+Status: approved by the owner, 18 Nov 2026. Nothing here is built, and
+nothing gets built until the owner asks.
 
 Goals, in the owner's words: scalable, cost-effective, fun, one app for both
 iPhone and Android. It is a free, for-fun project, so the plan favours
@@ -188,12 +188,11 @@ Sharing comes after one-phone on purpose: the event list is designed for
 sync from the start, so adding it later is not a rewrite, and the owner gets
 something usable much sooner.
 
-## 8. Open questions this plan raises
+## 8. Open questions
 
-- **Photos:** the answer was "both, but…" and the rest was cut off. What was
-  the condition?
-- **Invite links:** links that open the app directly need a web address we
-  own. Buy a domain, or start with a free one from the hosting provider?
-- **Google Play account:** not needed until Android ships; does one exist?
+- **Invite links:** the owner will buy a web address; which one is not
+  chosen yet.
+- **Google Play account:** none yet; the owner will set it up before Android
+  ships.
 - **`core-ledger`:** review it before building on it, or rewrite from scratch
   with the tests first?
