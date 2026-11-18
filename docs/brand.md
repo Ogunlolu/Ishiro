@@ -20,7 +20,7 @@ These are my readings of well-known products, not cited research.
 
 | From | What worked | What Ishiro takes |
 |---|---|---|
-| Strava | Kudos, a feed of activities, shareable cards; a plain white app with one accent colour | Thanks for the payer; the trip as a feed; one unmistakable brand colour |
+| Strava | Kudos, a feed of activities, shareable cards; a plain white app with one accent colour | Reactions on each expense; the trip as a feed; one unmistakable brand colour |
 | Spotify Wrapped | Year-end recap as bold, screenshot-ready cards with playful labels | Trip Wrapped with awards, built to share in the group chat |
 | Duolingo | A distinct voice and small celebrations | Celebrate settling up. We do not copy the guilt-trip reminders |
 | Monzo (UK) | Plain human language about money; a colour nobody else had | Plain words, never bank language; an ownable colour |
@@ -36,7 +36,7 @@ What we deliberately avoid: red/green debt colouring, daily limits and ads
 The fun friend who is good with money: warm, witty but never petty, fair to
 everyone. Celebrates the payer; never shames the person who owes.
 
-- "Ada got dinner. Say thanks?" not "New expense added by Ada."
+- "Ada got dinner." not "New expense added by Ada."
 - "Ben, you're up. You've fronted the least." not "Ben has an outstanding debt."
 - "All square. Trip closed clean." not "All balances have been settled."
 
@@ -88,13 +88,27 @@ earned moments: a thank-you, the stamp, the wrap-up.
 
 ## Signature moments
 
-1. **Thanks for the payer** — every expense reads "Ada got dinner" with a
-   one-tap thanks.
+1. **Reactions and banter** — friends react to an expense with emoji and
+   leave a one-line comment ("who ordered the third bottle"). This replaced
+   the earlier "say thanks" idea, which felt forced.
 2. **Whose turn** — "Ben, you're up": a gentle prompt that keeps things even.
 3. **Square up** — few payments, a "Why $90?" explanation on each, a progress
    bar, and the Closed clean stamp when everyone is even.
 4. **Trip Wrapped** — shareable recap with awards (The Banker, Uber Royalty,
    Minister of Snacks, Fastest to square up).
+
+## Trips with several cities
+
+- A trip can have several stops, each with its own photo.
+- Trip home shows the stops as swipeable photo cards, with the current city in
+  the middle and the others peeking in at the sides.
+- Under the cards, a three-part bar: finished cities in black, the current
+  one in Guava, upcoming ones in grey, each with what was spent there.
+- There is still one balance for the whole trip; people settle once, at the end.
+- Expenses are filed under the city the group is in, and can be moved.
+- An expense shows the amount as paid (for example €96) with the trip
+  currency underneath ($104).
+- Trip Wrapped adds spend per city.
 
 ## Open brand questions
 

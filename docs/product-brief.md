@@ -74,7 +74,7 @@ Foundation (trust):
 
 Fun, on top:
 
-- **Thanks for the payer.** "Ada got dinner" with one-tap thanks.
+- **Reactions and banter.** "Ada got dinner", with emoji reactions and one-line comments from the group.
 - **The trip as a feed**, with optional photos, that people reopen later.
 - **Whose turn.** A playful prompt for whoever has fronted the least.
 - **Trip Wrapped.** A shareable recap with awards; this is the growth loop.
@@ -97,16 +97,16 @@ Playful/Plain setting per trip). Both should be tested with real groups early.
 - Balance breakdown: every balance traceable to its expenses.
 - Activity log of every add, edit and delete.
 - Record a repayment ("Ben paid Ada 90") and mark the trip settled.
-- One-tap thanks on an expense.
+- Emoji reactions and a one-line comment on an expense.
+- Trips with several cities (stops), each with its own photo and spend.
+- Expenses entered in the local currency and converted to the trip currency.
 - Trip Wrapped: a shareable end-of-trip recap with awards.
 - Works offline and syncs when back online.
-- One currency per trip, chosen at creation.
 - No daily limits, no ads.
 - Delete my data / leave trip (required by both app stores).
 
 ### Nice to have (after version 1)
 
-- Multiple currencies in one trip with exchange rates.
 - Photo attached to an expense (receipt or moment).
 - "Whose turn" prompt.
 - Split by shares or percentages; itemised bills.
