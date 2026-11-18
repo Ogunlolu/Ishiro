@@ -25,6 +25,8 @@ in the first session an agent started building unasked and had to stop.
 - `docs/product-brief.md` — problem, market research, scope, architecture,
   security, plan, open decisions.
 - `docs/brand.md` — approved brand direction and design rules.
+- `docs/architecture.md` — proposed architecture and the way of working with
+  agents (awaiting the owner's approval).
 - Design canvas (private to the owner; ask them to share or export if you
   cannot open it): https://claude.ai/artifact/BS92wjiJh4MF1Gyx1mzChF
 
@@ -56,17 +58,24 @@ in the first session an agent started building unasked and had to stop.
 - **Nobody enters debts.** People record what they paid; the app works out
   balances and the fewest payments to settle.
 - **The app does not move money.** People pay each other outside it and mark
-  the payment done.
+  the payment done. Either person can mark it, with a visible log.
+- **Sharing is in version 1:** join by link, no account.
+- **Backend:** Supabase.
+- **Business model:** free. It is a for-fun project; keep running costs near
+  zero and add no paid service without asking.
+- **Trip cover photos:** from the camera roll and a stock library (both).
+- **Accounts:** the owner has an Apple Developer account.
 
 ## Still open (ask the owner; do not assume)
 
-- Sharing in version 1 (recommended: yes, join by link, no account).
-- Backend (recommended: Supabase; alternative: Firebase).
-- Business model (recommended: free with no limits, paid extras later).
-- Who can mark a payment done (recommended: either person, with a visible log).
-- Where trip cover photos come from (camera roll, licensed stock library, or both).
+- Trip cover photos: the owner said "both, but…" and the condition was cut
+  off. Ask what it was.
 - Logo symbol and app icon; trademark and store-name checks for "Ishiro".
-- Whether the owner has Apple Developer and Google Play accounts.
+  The owner will come back to this later.
+- Whether the owner has a Google Play account (Apple Developer: yes).
+- A web address for invite links (see `docs/architecture.md`, section 8).
+- Whether to review or rewrite the `core-ledger` money logic.
+- `docs/architecture.md` is proposed, not yet approved by the owner.
 
 ## Engineering rules for when building starts
 
