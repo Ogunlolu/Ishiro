@@ -1,7 +1,7 @@
 # Ishiro — product brief (draft for discussion)
 
-Status: draft, 18 Nov 2026. Nothing here is decided until the open decisions in
-section 11 are answered. No app code should be written before then.
+Status: draft, 18 Nov 2026. Decided and open items are listed in AGENTS.md; see also
+section 11. No app code should be written until the owner asks for it.
 
 ## 1. The problem
 
