@@ -59,20 +59,31 @@ What this tells us:
 
 ## 4. Positioning
 
-**Ishiro is the trip ledger nobody argues with.**
+**Split the trip. Keep the friends.**
 
-Not "another bill splitter". Three things carry that promise:
+Updated after discussion: trust is the foundation, fun is the reason people
+choose Ishiro, the way Strava won by making running social rather than by
+tracking it first. The audience is friends aged 18–38, launching in North
+America and the UK.
 
-- **Explain every number.** Tap any balance and see exactly which expenses
-  produce it: "you owe Ada 130: tickets 100, dinner 22, Uber 8".
-- **Nothing changes silently.** Every add, edit and delete is recorded with
-  who and when, visible to the whole group.
-- **A real ending.** A trip wrap-up everyone can see: total spent, each
-  person's share, the few payments needed, and a "settled" state when done.
+Foundation (trust):
 
-Riskiest assumption: that clarity and trust are enough to make a group pick
-Ishiro over the app one of them already has. It should be tested with real
-groups before a lot is built (see section 10).
+- **Explain every number.** Tap any balance and see which expenses produce it.
+- **Nothing changes silently.** Every add, edit and delete shows who and when.
+- **A real ending.** The few payments needed, and a settled state when done.
+
+Fun, on top:
+
+- **Thanks for the payer.** "Ada got dinner" with one-tap thanks.
+- **The trip as a feed**, with optional photos, that people reopen later.
+- **Whose turn.** A playful prompt for whoever has fronted the least.
+- **Trip Wrapped.** A shareable recap with awards; this is the growth loop.
+
+Rule: fun points at the trip and at whoever paid, never at whoever owes.
+
+Riskiest assumptions: that this is enough to pull a group off the app one of
+them already has, and that the playful tone suits every group (hence a
+Playful/Plain setting per trip). Both should be tested with real groups early.
 
 ## 5. Scope
 
@@ -86,6 +97,8 @@ groups before a lot is built (see section 10).
 - Balance breakdown: every balance traceable to its expenses.
 - Activity log of every add, edit and delete.
 - Record a repayment ("Ben paid Ada 90") and mark the trip settled.
+- One-tap thanks on an expense.
+- Trip Wrapped: a shareable end-of-trip recap with awards.
 - Works offline and syncs when back online.
 - One currency per trip, chosen at creation.
 - No daily limits, no ads.
@@ -94,7 +107,8 @@ groups before a lot is built (see section 10).
 ### Nice to have (after version 1)
 
 - Multiple currencies in one trip with exchange rates.
-- Receipt photo attached to an expense.
+- Photo attached to an expense (receipt or moment).
+- "Whose turn" prompt.
 - Split by shares or percentages; itemised bills.
 - Push notifications for new expenses and reminders to settle.
 - Payment handoff: copy bank details, or deep links to payment apps.
@@ -112,34 +126,9 @@ groups before a lot is built (see section 10).
 
 ## 6. Design identity
 
-Money between friends is tense. The app should feel calm, fair and clear, not
-like a bank and not like a toy.
-
-- **Personality:** a calm, fair friend who is good with numbers. Never nags,
-  never shames.
-- **Voice:** plain and neutral. "Ben owes Ada 90", never "Ben is in debt".
-  No red alarm states for owing money; owing is normal on a trip.
-- **Visual style:** clean and flat, generous whitespace, soft cards, one
-  confident brand colour. Numbers are the hero of every screen.
-- **Colour:** a single brand colour (direction: deep green or teal, which
-  reads as trust and money without copying Splitwise's exact teal and orange),
-  warm neutral backgrounds, and a second accent for "you owe" that is not
-  red. Light and dark themes designed together.
-- **Type:** the system fonts on each platform (San Francisco on iOS, Roboto on
-  Android) so it feels native and loads instantly; tabular figures so amounts
-  line up; large, bold amounts.
-- **People:** each member gets a colour and initials avatar so "who" is
-  recognisable at a glance.
-- **Motion:** short and purposeful (150–300 ms); a small moment of closure
-  when a trip is settled. Respect reduced-motion settings.
-- **Accessibility as a baseline:** contrast of at least 4.5:1, touch targets of
-  at least 44 pt, never colour alone to show owing versus owed (always a label
-  or sign), supports large system text.
-- **One primary action per screen.** "Add expense" is always one tap away.
-
-Deliverables in the design phase: brand colour and tokens, type scale, the
-five core screens (trips, trip overview, add expense, balances and settle up,
-activity), light and dark, reviewed before any build.
+See [brand.md](brand.md) for the proposed brand: promise, voice, colour, type,
+the stamp motif and the four signature moments. It replaces the calmer green
+direction in the first draft of this brief.
 
 ## 7. Building simply for iOS and Android
 
