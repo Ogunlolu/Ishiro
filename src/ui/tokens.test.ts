@@ -1,5 +1,5 @@
 import { contrastRatio } from './contrast';
-import { minTouchTarget, palettes, type ColorScheme } from './tokens';
+import { palettes, type ColorScheme } from './tokens';
 
 const schemes: ColorScheme[] = ['light', 'dark'];
 
@@ -35,13 +35,4 @@ describe.each(schemes)('%s palette', (scheme) => {
     // WCAG 1.4.11: interface components need at least 3:1 against what is around them.
     expect(contrastRatio(p.guava, p.paper)).toBeGreaterThanOrEqual(3);
   });
-
-  it('always puts Ink text on Guava', () => {
-    expect(p.onGuava).toBe('#111111');
-    expect(p.guava).toBe('#FF4F8B');
-  });
-});
-
-it('keeps the touch target baseline at 44 points or more', () => {
-  expect(minTouchTarget).toBeGreaterThanOrEqual(44);
 });

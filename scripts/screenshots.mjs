@@ -3,13 +3,24 @@
 // Saves a screenshot of each to ./screenshots. Run with: npm run screenshots
 import { existsSync, mkdirSync, readFileSync, rmSync, statSync } from 'node:fs';
 import { createServer } from 'node:http';
-import { extname, join, normalize, resolve } from 'node:path';
+import { extname, join, normalize, resolve, sep } from 'node:path';
 import { chromium } from 'playwright';
 
 const dist = resolve('dist');
 const out = resolve('screenshots');
 
-// Each screen to check, and text that must be visible on it.
+// Expected colours per scheme, read from the design tokens so the two cannot drift.
+const tokens = readFileSync(resolve('src/ui/tokens.ts'), 'utf8');
+function token(scheme, name) {
+  const block = new RegExp(`${scheme}: \\{([^}]*)\\}`).exec(tokens)?.[1] ?? '';
+  const hex = new RegExp(`${name}: '#([0-9A-Fa-f]{6})'`).exec(block)?.[1];
+  if (!hex) throw new Error(`Could not read ${scheme}.${name} from src/ui/tokens.ts`);
+  const n = parseInt(hex, 16);
+  return `rgb(${(n >> 16) & 255}, ${(n >> 8) & 255}, ${n & 255})`;
+}
+
+// Each screen to check, and text that must be visible on it. The first text
+// is a headline, which must be drawn in that scheme's Ink on its Paper.
 const screens = [
   { name: 'home', path: '/', expect: ['ishiro', 'No trips yet.', 'Start a trip'] },
   { name: 'new-trip', path: '/new-trip', expect: ['New trip'] },
@@ -35,9 +46,14 @@ if (!existsSync(join(dist, 'index.html'))) {
 const server = createServer((req, res) => {
   const urlPath = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
   let file = normalize(join(dist, urlPath));
-  if (!file.startsWith(dist) || !existsSync(file) || statSync(file).isDirectory()) {
-    file = join(dist, 'index.html');
+  const inside = file === dist || file.startsWith(dist + sep);
+  const found = inside && existsSync(file) && statSync(file).isFile();
+  if (!found && extname(urlPath) !== '') {
+    // A missing file (script, font, image) is a real failure, not a page.
+    res.writeHead(404).end();
+    return;
   }
+  if (!found) file = join(dist, 'index.html');
   res.writeHead(200, { 'Content-Type': types[extname(file)] ?? 'application/octet-stream' });
   res.end(readFileSync(file));
 });
@@ -69,6 +85,9 @@ for (const scheme of schemes) {
       if (message.type() === 'error') errors.push(message.text());
     });
     page.on('requestfailed', (request) => errors.push(`failed to load ${request.url()}`));
+    page.on('response', (response) => {
+      if (response.status() >= 400) errors.push(`${response.status()} for ${response.url()}`);
+    });
 
     try {
       await page.goto(base + screen.path, { waitUntil: 'networkidle' });
@@ -80,6 +99,22 @@ for (const scheme of schemes) {
         [...document.fonts].some((f) => f.family.includes('Bricolage') && f.status === 'loaded'),
       );
       if (!brandFontLoaded) errors.push('Bricolage Grotesque did not load');
+
+      // The scheme must really change the colours, not just the label on the file.
+      const seen = await page.getByText(screen.expect[0], { exact: true }).first().evaluate((el) => {
+        let node = el;
+        let background = 'rgba(0, 0, 0, 0)';
+        while (node && background === 'rgba(0, 0, 0, 0)') {
+          background = getComputedStyle(node).backgroundColor;
+          node = node.parentElement;
+        }
+        return { text: getComputedStyle(el).color, background };
+      });
+      const want = { text: token(scheme, 'ink'), background: token(scheme, 'paper') };
+      if (seen.text !== want.text) errors.push(`text is ${seen.text}, expected ${want.text}`);
+      if (seen.background !== want.background) {
+        errors.push(`background is ${seen.background}, expected ${want.background}`);
+      }
     } catch (error) {
       errors.push(error.message.split('\n')[0]);
     }
@@ -100,6 +135,8 @@ for (const scheme of schemes) {
 {
   const context = await browser.newContext({ viewport: { width: 390, height: 844 } });
   const page = await context.newPage();
+  const errors = [];
+  page.on('pageerror', (error) => errors.push(error.message));
   try {
     await page.goto(base + '/', { waitUntil: 'networkidle' });
     await page.getByRole('button', { name: 'Start a trip' }).click();
@@ -107,6 +144,7 @@ for (const scheme of schemes) {
     if (new URL(page.url()).pathname !== '/new-trip') {
       throw new Error(`expected to land on /new-trip, got ${page.url()}`);
     }
+    if (errors.length > 0) throw new Error(errors.join('; '));
     console.log('ok    tap "Start a trip" opens New trip');
   } catch (error) {
     failures.push(`tap "Start a trip": ${error.message.split('\n')[0]}`);

@@ -28,6 +28,7 @@
     "@types/react": "~19.3.0",
     "eslint": "^9.0.0",
     "eslint-config-expo": "~58.0.4",
+    "expo-doctor": "^1.21.8",
     "jest": "~30.5.2",
     "jest-expo": "~58.0.15",
     "playwright": "^1.65.1",
@@ -41,7 +42,7 @@
     "typecheck": "tsc --noEmit",
     "lint": "expo lint",
     "test": "jest",
-    "doctor": "npx --yes expo-doctor@latest",
+    "doctor": "expo-doctor",
     "build:web": "expo export --platform web --output-dir dist",
     "screenshots": "npm run build:web && node scripts/screenshots.mjs",
     "verify": "npm run typecheck && npm run lint && npm test && npm run doctor && npm run screenshots"

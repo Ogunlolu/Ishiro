@@ -1,7 +1,7 @@
 # Ishiro — architecture and how we work with agents
 
-Status: approved by the owner, 18 Nov 2026. Nothing here is built, and
-nothing gets built until the owner asks.
+Status: approved by the owner, 18 Nov 2026. Building follows the order in
+section 7, one slice at a time, each started only when the owner asks.
 
 Goals, in the owner's words: scalable, cost-effective, fun, one app for both
 iPhone and Android. It is a free, for-fun project, so the plan favours
@@ -144,7 +144,8 @@ minutes. One slice, one branch, one pull request.
 
 **Guardrails that do not depend on an agent behaving:**
 
-- `main` is protected: nothing merges unless the automatic checks pass.
+- `main` is to be protected so nothing merges unless the automatic checks
+  pass (a repository setting the owner switches on; not yet done).
 - Money logic has its own test suite, including random-input tests ("balances
   always add up to zero", "nobody ends up owing a fraction of a cent").
 - Access rules have tests that try to read another group's trip and must fail.

@@ -28,15 +28,23 @@ show, tries it on a real phone.
 1. **Type check** — the code agrees with itself (`npm run typecheck`).
 2. **Lint** — common mistakes (`npm run lint`).
 3. **Tests** — behaviour and brand rules (`npm test`). This includes the
-   accessibility rules as tests: text contrast at least 4.5:1 in both colour
-   schemes, Ink text on Guava, touch targets at least 44 points.
+   accessibility rules that can be tested so far: text contrast at least
+   4.5:1 in both colour schemes, and the main button being Guava with Ink
+   text and at least 44 points tall.
 4. **Expo health check** — the project set-up matches the installed Expo
    version (`npm run doctor`).
-5. **Screen checks** — builds the web preview, opens each screen, taps
-   through, and saves screenshots to `screenshots/` (`npm run screenshots`).
+5. **Screen checks** — builds the web preview, opens each screen in light
+   and dark, checks the text, font and colours really are that scheme's,
+   taps through, and saves screenshots to `screenshots/`
+   (`npm run screenshots`).
 
 GitHub runs the same five steps on every pull request and keeps the
-screenshots for 14 days. `main` should be set to refuse merges while they fail.
+screenshots for 14 days. `main` is not yet set to refuse merges while they
+fail; that is a repository setting only the owner can switch on.
+
+One deliberate exception to "colours live only in `src/ui/tokens.ts`": the
+splash screen and Android icon backgrounds in `app.json`, which the phone
+shows before any app code runs.
 
 ## Rules for agents
 

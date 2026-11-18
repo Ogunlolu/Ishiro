@@ -82,7 +82,7 @@ to stop.
 - Which web address to buy for invite links (the owner agreed to buy one;
   none chosen yet).
 
-## Engineering rules for when building starts
+## Engineering rules
 
 - Money is always whole minor units (cents) as integers. Never floats.
 - Money logic is pure, UI-free and fully tested. A first version lives on the

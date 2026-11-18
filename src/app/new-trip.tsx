@@ -7,7 +7,7 @@ import { spacing } from '@/ui/tokens';
 /** Placeholder: creating a trip is the next slice to build. */
 export default function NewTripScreen() {
   return (
-    <Screen>
+    <Screen hasHeader>
       <View style={styles.content}>
         <Headline>New trip</Headline>
         <Body>Nothing here yet. Creating a trip is next to be built.</Body>

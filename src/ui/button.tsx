@@ -14,17 +14,20 @@ export function Button({ label, onPress }: ButtonProps) {
   return (
     <Pressable
       accessibilityRole="button"
+      testID="button"
       onPress={onPress}
       style={({ pressed }) => [
         styles.button,
         { backgroundColor: theme.guava, opacity: pressed ? 0.85 : 1 },
       ]}>
-      <Text style={[styles.label, { color: theme.onGuava }]}>{label}</Text>
+      <Text testID="button-label" style={[styles.label, { color: theme.onGuava }]}>
+        {label}
+      </Text>
     </Pressable>
   );
 }
 
-export const buttonMinHeight = 56;
+const buttonMinHeight = 56;
 
 const styles = StyleSheet.create({
   button: {
