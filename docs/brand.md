@@ -1,6 +1,6 @@
 # Ishiro — brand direction (draft v1)
 
-Status: proposed 18 Nov 2026, not yet approved. Visual board and sample
+Status: colour direction approved 18 Nov 2026 (Guava pink, black and white, trip photo); the rest is still a proposal. Visual board and sample
 screens: https://claude.ai/artifact/BS92wjiJh4MF1Gyx1mzChF (private to the owner).
 
 ## Who it is for
@@ -65,11 +65,11 @@ earned moments: a thank-you, the stamp, the wrap-up.
 
   | Name | Hex | Use |
   |---|---|---|
-  | Ink | `#14121F` | Text and numbers |
+  | Ink | `#111111` | Text and numbers |
   | Paper | `#FFFFFF` | Everything else |
-  | Mango | `#FFB627` | The one main action per screen, and celebrations (always with Ink text) |
+  | Guava | `#FF4F8B` | The one main action per screen, and celebrations (always with Ink text) |
 
-  Supporting greys: `#5F5C6B` for secondary text, `#E7E5EC` for dividers.
+  Supporting greys: `#555555` for secondary text, `#E5E5E5` for dividers.
   No colour-coded people and no red or green balances; who owes is said in
   words ("you get back", "Ben pays you").
 - **Type:** Bricolage Grotesque for the big numbers, headlines and the stamp;
@@ -78,8 +78,9 @@ earned moments: a thank-you, the stamp, the wrap-up.
   lines rather than boxed cards; generous white space.
 - **The stamp:** a passport-style "Closed clean" mark, earned when a trip is
   settled. Used sparingly so it stays special.
-- **The party moment:** Trip Wrapped is the one full-colour Mango screen,
-  because it is the screen people share.
+- **Trip photo:** every trip has a cover photo; it opens the trip home screen, appears as a thumbnail on other screens, and is the only colour besides the accent.
+- **The party moment:** Trip Wrapped is the trip photo full screen with the
+  total in Guava, because it is the screen people share.
 - **Motion and touch:** quick (150–300 ms); a stamp "thunk" with a light
   vibration when a payment is marked done. Honours reduced-motion settings.
 - **Accessibility:** text contrast at least 4.5:1, touch targets at least
@@ -97,7 +98,8 @@ earned moments: a thank-you, the stamp, the wrap-up.
 
 ## Open brand questions
 
-- Approve Ink, Paper and Mango as the only colours, or try a different single accent?
+- Colour is decided: Guava pink approved as the single accent on 18 Nov 2026.
+- Where trip cover photos come from: the user's camera roll, a licensed stock library, or both.
 - Is there a meaning behind "Ishiro" the brand should carry?
 - Logo symbol and app icon are not designed yet.
 - Trademark and app-store name checks for "Ishiro" in the US, Canada and UK
