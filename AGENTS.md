@@ -4,21 +4,25 @@ Ishiro is a mobile app (iOS and Android) for friends on group trips: record
 who paid for what, see who owes whom, and end the trip square. Promise:
 **"Split the trip. Keep the friends."**
 
-## Current stage: planning. Do not build yet.
+## Current stage: building, one slice at a time
 
-No app code exists on `main`, by the owner's decision. Do not scaffold, install
-dependencies or write app code until the owner explicitly asks for it. Twice
-in the first session an agent started building unasked and had to stop.
+Building started on 18 Nov 2026 with the Foundation slice (an empty app,
+design tokens, automatic checks). Build only the slice the owner asked for;
+the order is in `docs/architecture.md`, section 7. Do not start the next
+slice unasked. Early on, agents twice built things nobody asked for and had
+to stop.
 
 ## How to work with the owner
 
 - Do exactly what was asked, then stop. Propose next steps; do not start them.
-- Ask before anything that creates code, adds dependencies, or pushes to `main`.
+- Ask before starting a new slice, adding dependencies or paid services, or
+  merging to `main`.
 - Explain in plain language; lead with the answer. The owner reviews work on
   a phone, mostly as visuals, and gives short, direct feedback.
 - For design work, show options side by side and let the owner pick rather
   than guessing a single direction.
-- Report honestly what was and was not done or checked.
+- Report honestly what was and was not done or checked, using the report
+  format in `docs/verification.md`.
 
 ## Read these first
 
@@ -27,6 +31,8 @@ in the first session an agent started building unasked and had to stop.
 - `docs/brand.md` — approved brand direction and design rules.
 - `docs/architecture.md` — approved architecture and the way of working with
   agents.
+- `docs/verification.md` — how to prove a change works. Run `npm run verify`
+  before calling anything ready.
 - Design canvas (private to the owner; ask them to share or export if you
   cannot open it): https://claude.ai/artifact/BS92wjiJh4MF1Gyx1mzChF
 
@@ -34,7 +40,7 @@ in the first session an agent started building unasked and had to stop.
 
 - **Audience:** friends aged 18–38. Launch markets: North America and the UK.
 - **Platforms:** iOS and Android from one codebase, React Native with Expo
-  (TypeScript). The owner approved Expo; nothing is scaffolded on `main`.
+  (TypeScript, SDK 58, Expo Router with screens in `src/app/`).
 - **Positioning:** trust is the foundation (every number explains itself,
   nothing changes silently, a clean ending); fun is why people choose it.
 - **Brand:** see `docs/brand.md`. In short:
@@ -92,7 +98,17 @@ in the first session an agent started building unasked and had to stop.
 - Accessibility baseline: text contrast at least 4.5:1, touch targets at
   least 44 pt, large system text supported, no meaning by colour alone.
 
+## Commands
+
+- `npm run verify` — every check: types, lint, tests, Expo health, screen
+  checks with screenshots. Must pass before a slice is called ready.
+- `npm start` — run the app (scan the QR code with Expo Go on a phone).
+- `npm test`, `npm run typecheck`, `npm run lint`, `npm run screenshots` —
+  the individual checks.
+
 ## Git
 
-- Work on a branch; do not push to `main` or open a pull request unless asked.
-- Branches: `main` (docs only), `core-ledger` (unreviewed money logic).
+- Work on a branch; one slice, one pull request. Do not merge to `main`
+  without the owner's approval.
+- Branches: `main`, `core-ledger` (unreviewed money logic, to be reviewed
+  and extended in the money logic slice).
