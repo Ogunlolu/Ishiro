@@ -194,5 +194,5 @@ something usable much sooner.
   chosen yet.
 - **Google Play account:** none yet; the owner will set it up before Android
   ships.
-- **`core-ledger`:** review it before building on it, or rewrite from scratch
-  with the tests first?
+- **`core-ledger`:** decided — keep it as the starting point; review and
+  extend it when building starts.

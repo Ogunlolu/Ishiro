@@ -75,14 +75,15 @@ in the first session an agent started building unasked and had to stop.
   The owner will come back to this later.
 - Which web address to buy for invite links (the owner agreed to buy one;
   none chosen yet).
-- Whether to review or rewrite the `core-ledger` money logic.
 
 ## Engineering rules for when building starts
 
 - Money is always whole minor units (cents) as integers. Never floats.
 - Money logic is pure, UI-free and fully tested. A first version lives on the
-  `core-ledger` branch (`src/core/ledger.ts`); it was written before the owner
-  asked for it and has not been reviewed or merged.
+  `core-ledger` branch (`src/core/ledger.ts`). The owner chose to keep it as
+  the starting point for now; it is still unreviewed and unmerged, and
+  predates the event log, multi-city trips and currencies. Review and extend
+  it when building starts; do not rewrite it from scratch.
 - History is append-only: edits and deletes are new events, never erasures.
 - Access to a trip is enforced on the server by membership, never by the app.
 - Collect as little personal data as possible; no bank or card details.
