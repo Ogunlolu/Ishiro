@@ -25,6 +25,8 @@ in the first session an agent started building unasked and had to stop.
 - `docs/product-brief.md` — problem, market research, scope, architecture,
   security, plan, open decisions.
 - `docs/brand.md` — approved brand direction and design rules.
+- `docs/architecture.md` — approved architecture and the way of working with
+  agents.
 - Design canvas (private to the owner; ask them to share or export if you
   cannot open it): https://claude.ai/artifact/BS92wjiJh4MF1Gyx1mzChF
 
@@ -56,24 +58,32 @@ in the first session an agent started building unasked and had to stop.
 - **Nobody enters debts.** People record what they paid; the app works out
   balances and the fewest payments to settle.
 - **The app does not move money.** People pay each other outside it and mark
-  the payment done.
+  the payment done. Either person can mark it, with a visible log.
+- **Sharing is in version 1:** join by link, no account.
+- **Backend:** Supabase.
+- **Business model:** free. It is a for-fun project; keep running costs near
+  zero and add no paid service without asking.
+- **Trip cover photos:** from the camera roll and a stock library (both).
+- **Accounts:** the owner has an Apple Developer account. No Google Play
+  account yet; the owner will set it up later, before Android ships.
+- **Architecture and way of working:** `docs/architecture.md`, approved by
+  the owner on 18 Nov 2026.
 
 ## Still open (ask the owner; do not assume)
 
-- Sharing in version 1 (recommended: yes, join by link, no account).
-- Backend (recommended: Supabase; alternative: Firebase).
-- Business model (recommended: free with no limits, paid extras later).
-- Who can mark a payment done (recommended: either person, with a visible log).
-- Where trip cover photos come from (camera roll, licensed stock library, or both).
 - Logo symbol and app icon; trademark and store-name checks for "Ishiro".
-- Whether the owner has Apple Developer and Google Play accounts.
+  The owner will come back to this later.
+- Which web address to buy for invite links (the owner agreed to buy one;
+  none chosen yet).
 
 ## Engineering rules for when building starts
 
 - Money is always whole minor units (cents) as integers. Never floats.
 - Money logic is pure, UI-free and fully tested. A first version lives on the
-  `core-ledger` branch (`src/core/ledger.ts`); it was written before the owner
-  asked for it and has not been reviewed or merged.
+  `core-ledger` branch (`src/core/ledger.ts`). The owner chose to keep it as
+  the starting point for now; it is still unreviewed and unmerged, and
+  predates the event log, multi-city trips and currencies. Review and extend
+  it when building starts; do not rewrite it from scratch.
 - History is append-only: edits and deletes are new events, never erasures.
 - Access to a trip is enforced on the server by membership, never by the app.
 - Collect as little personal data as possible; no bank or card details.
