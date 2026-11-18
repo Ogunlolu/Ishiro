@@ -1,7 +1,7 @@
 # Ishiro — architecture and how we work with agents
 
-Status: approved by the owner, 18 Nov 2026. Nothing here is built, and
-nothing gets built until the owner asks.
+Status: approved by the owner, 18 Nov 2026. Building follows the order in
+section 7, one slice at a time, each started only when the owner asks.
 
 Goals, in the owner's words: scalable, cost-effective, fun, one app for both
 iPhone and Android. It is a free, for-fun project, so the plan favours
@@ -35,7 +35,7 @@ iPhone and Android. It is a free, for-fun project, so the plan favours
 | Money logic | `src/core/` | Balances, splits, fewest payments, currency conversion | Pure functions, integer cents, no UI, no network, fully tested |
 | Data | `src/data/` | Local SQLite database and sync with Supabase | The only code that talks to the database or the network |
 | Design system | `src/ui/` | Tokens (colour, type, spacing) and the small component set | The only place colours and fonts are defined |
-| Screens | `app/` | One file per screen, Expo's file-based navigation | One job and one main button per screen; no maths in screens |
+| Screens | `src/app/` | One file per screen, Expo's file-based navigation | One job and one main button per screen; no maths in screens |
 
 Plus `supabase/` for the database: tables, access rules and their tests, all
 as files in the repo so every change is reviewable and repeatable.
@@ -144,7 +144,8 @@ minutes. One slice, one branch, one pull request.
 
 **Guardrails that do not depend on an agent behaving:**
 
-- `main` is protected: nothing merges unless the automatic checks pass.
+- `main` is to be protected so nothing merges unless the automatic checks
+  pass (a repository setting the owner switches on; not yet done).
 - Money logic has its own test suite, including random-input tests ("balances
   always add up to zero", "nobody ends up owing a fraction of a cent").
 - Access rules have tests that try to read another group's trip and must fail.
